@@ -155,6 +155,12 @@ static int snd_soc_dapm_put_volsw_aic3x(struct snd_kcontrol *kcontrol,
 	struct snd_soc_dapm_update update;
 	int connect, change;
 
+	// if(reg == 51)
+	{
+		printk("zty dapm  volsw start reg %d!\n", reg);
+		dump_stack();
+	}
+		printk("ztt read reg val %d!\n", snd_soc_read(codec, 51)); 
 	val = (ucontrol->value.integer.value[0] & mask);
 
 	mask = 0xf;

@@ -1,0 +1,1380 @@
+snd_soc_dapm_widget
+初始化类型有 SND_SOC_DAPM_DAC 
+	    SND_SOC_DAPM_MUX  选择1路模拟信号从很多输入里
+	    SND_SOC_DAPM_PGA 可编程的增益 和衰减  
+	    SND_SOC_DAPM_ADC
+	    SND_SOC_DAPM_MIXER
+	    
+struct snd_soc_dapm_widget {
+	enum snd_soc_dapm_type id;
+	const char * name;  插件名字
+	const char * sname  流名字
+	struct snd_soc_codec * codec;
+	struct snd_soc_platform * platform;
+	struct snd_soc_dapm_context * dapm;
+	}
+	
+snd_soc_dapm_new_controls 新建snd_soc_dapm_widget 并添加到dapm->card->widgets上
+snd_soc_dapm_add_routes 
+snd_soc_dapm_new_widgets
+
+void *kmemdup(const void *src, size_t len, gfp_t gfp) 新建被拷贝src
+
+ amixer controls
+numid=5,iface=MIXER,name='PCM Playback Volume'
+numid=26,iface=MIXER,name='Line DAC Playback Volume'
+numid=24,iface=MIXER,name='Line Line2 Bypass Volume'
+numid=25,iface=MIXER,name='Line PGA Bypass Volume'
+numid=33,iface=MIXER,name='Line Playback Switch'
+numid=3,iface=MIXER,name='Mono DAC Playback Volume'
+numid=1,iface=MIXER,name='Mono Line2 Bypass Volume'
+numid=49,iface=MIXER,name='Mono Mixer DACL1 Switch'
+numid=52,iface=MIXER,name='Mono Mixer DACR1 Switch'
+numid=47,iface=MIXER,name='Mono Mixer Line2L Bypass Switch'
+numid=50,iface=MIXER,name='Mono Mixer Line2R Bypass Switch'
+numid=48,iface=MIXER,name='Mono Mixer PGAL Bypass Switch'
+numid=51,iface=MIXER,name='Mono Mixer PGAR Bypass Switch'
+numid=2,iface=MIXER,name='Mono PGA Bypass Volume'
+numid=4,iface=MIXER,name='Mono Playback Switch'
+numid=46,iface=MIXER,name='ADC HPF Cut-off'
+numid=36,iface=MIXER,name='AGC Switch'
+numid=43,iface=MIXER,name='De-emphasis Switch'
+numid=29,iface=MIXER,name='HP DAC Playback Volume'
+numid=27,iface=MIXER,name='HP Line2 Bypass Volume'
+numid=28,iface=MIXER,name='HP PGA Bypass Volume'
+numid=34,iface=MIXER,name='HP Playback Switch'
+numid=32,iface=MIXER,name='HPCOM DAC Playback Volume'
+numid=30,iface=MIXER,name='HPCOM Line2 Bypass Volume'
+numid=31,iface=MIXER,name='HPCOM PGA Bypass Volume'
+numid=35,iface=MIXER,name='HPCOM Playback Switch'
+numid=39,iface=MIXER,name='Left AGC Attack time'
+numid=41,iface=MIXER,name='Left AGC Decay time'
+numid=37,iface=MIXER,name='Left AGC Target level'
+numid=108,iface=MIXER,name='Left DAC Mux'
+numid=73,iface=MIXER,name='Left HP Mixer DACL1 Switch'
+numid=14,iface=MIXER,name='Left HP Mixer DACR1 Playback Volume'
+numid=76,iface=MIXER,name='Left HP Mixer DACR1 Switch'
+numid=71,iface=MIXER,name='Left HP Mixer Line2L Bypass Switch'
+numid=74,iface=MIXER,name='Left HP Mixer Line2R Bypass Switch'
+numid=12,iface=MIXER,name='Left HP Mixer Line2R Bypass Volume'
+numid=72,iface=MIXER,name='Left HP Mixer PGAL Bypass Switch'
+numid=75,iface=MIXER,name='Left HP Mixer PGAR Bypass Switch'
+numid=13,iface=MIXER,name='Left HP Mixer PGAR Bypass Volume'
+numid=61,iface=MIXER,name='Left HPCOM Mixer DACL1 Switch'
+numid=20,iface=MIXER,name='Left HPCOM Mixer DACR1 Playback Volume'
+numid=64,iface=MIXER,name='Left HPCOM Mixer DACR1 Switch'
+numid=59,iface=MIXER,name='Left HPCOM Mixer Line2L Bypass Switch'
+numid=62,iface=MIXER,name='Left HPCOM Mixer Line2R Bypass Switch'
+numid=18,iface=MIXER,name='Left HPCOM Mixer Line2R Bypass Volume'
+numid=60,iface=MIXER,name='Left HPCOM Mixer PGAL Bypass Switch'
+numid=63,iface=MIXER,name='Left HPCOM Mixer PGAR Bypass Switch'
+numid=19,iface=MIXER,name='Left HPCOM Mixer PGAR Bypass Volume'
+numid=107,iface=MIXER,name='Left HPCOM Mux'
+numid=85,iface=MIXER,name='Left Line Mixer DACL1 Switch'
+numid=8,iface=MIXER,name='Left Line Mixer DACR1 Playback Volume'
+numid=88,iface=MIXER,name='Left Line Mixer DACR1 Switch'
+numid=83,iface=MIXER,name='Left Line Mixer Line2L Bypass Switch'
+numid=86,iface=MIXER,name='Left Line Mixer Line2R Bypass Switch'
+numid=6,iface=MIXER,name='Left Line Mixer Line2R Bypass Volume'
+numid=84,iface=MIXER,name='Left Line Mixer PGAL Bypass Switch'
+numid=87,iface=MIXER,name='Left Line Mixer PGAR Bypass Switch'
+numid=7,iface=MIXER,name='Left Line Mixer PGAR Bypass Volume'
+numid=99,iface=MIXER,name='Left Line1L Mux'
+numid=98,iface=MIXER,name='Left Line1R Mux'
+numid=97,iface=MIXER,name='Left Line2L Mux'
+numid=100,iface=MIXER,name='Left PGA Mixer Line1L Switch'
+numid=101,iface=MIXER,name='Left PGA Mixer Line1R Switch'
+numid=102,iface=MIXER,name='Left PGA Mixer Line2L Switch'
+numid=103,iface=MIXER,name='Left PGA Mixer Mic3L Switch'
+numid=104,iface=MIXER,name='Left PGA Mixer Mic3R Switch'
+numid=45,iface=MIXER,name='PGA Capture Switch'
+numid=44,iface=MIXER,name='PGA Capture Volume'
+numid=40,iface=MIXER,name='Right AGC Attack time'
+numid=42,iface=MIXER,name='Right AGC Decay time'
+numid=38,iface=MIXER,name='Right AGC Target level'
+numid=106,iface=MIXER,name='Right DAC Mux'
+numid=17,iface=MIXER,name='Right HP Mixer DACL1 Playback Volume'
+numid=67,iface=MIXER,name='Right HP Mixer DACL1 Switch'
+numid=70,iface=MIXER,name='Right HP Mixer DACR1 Switch'
+numid=65,iface=MIXER,name='Right HP Mixer Line2L Bypass Switch'
+numid=15,iface=MIXER,name='Right HP Mixer Line2L Bypass Volume'
+numid=68,iface=MIXER,name='Right HP Mixer Line2R Bypass Switch'
+numid=66,iface=MIXER,name='Right HP Mixer PGAL Bypass Switch'
+numid=16,iface=MIXER,name='Right HP Mixer PGAL Bypass Volume'
+numid=69,iface=MIXER,name='Right HP Mixer PGAR Bypass Switch'
+numid=23,iface=MIXER,name='Right HPCOM Mixer DACL1 Playback Volume'
+numid=55,iface=MIXER,name='Right HPCOM Mixer DACL1 Switch'
+numid=58,iface=MIXER,name='Right HPCOM Mixer DACR1 Switch'
+numid=53,iface=MIXER,name='Right HPCOM Mixer Line2L Bypass Switch'
+numid=21,iface=MIXER,name='Right HPCOM Mixer Line2L Bypass Volume'
+numid=56,iface=MIXER,name='Right HPCOM Mixer Line2R Bypass Switch'
+numid=54,iface=MIXER,name='Right HPCOM Mixer PGAL Bypass Switch'
+numid=22,iface=MIXER,name='Right HPCOM Mixer PGAL Bypass Volume'
+numid=57,iface=MIXER,name='Right HPCOM Mixer PGAR Bypass Switch'
+numid=105,iface=MIXER,name='Right HPCOM Mux'
+numid=11,iface=MIXER,name='Right Line Mixer DACL1 Playback Volume'
+numid=79,iface=MIXER,name='Right Line Mixer DACL1 Switch'
+numid=82,iface=MIXER,name='Right Line Mixer DACR1 Switch'
+numid=77,iface=MIXER,name='Right Line Mixer Line2L Bypass Switch'
+numid=9,iface=MIXER,name='Right Line Mixer Line2L Bypass Volume'
+numid=80,iface=MIXER,name='Right Line Mixer Line2R Bypass Switch'
+numid=78,iface=MIXER,name='Right Line Mixer PGAL Bypass Switch'
+numid=10,iface=MIXER,name='Right Line Mixer PGAL Bypass Volume'
+numid=81,iface=MIXER,name='Right Line Mixer PGAR Bypass Switch'
+numid=91,iface=MIXER,name='Right Line1L Mux'
+numid=90,iface=MIXER,name='Right Line1R Mux'
+numid=89,iface=MIXER,name='Right Line2R Mux'
+numid=93,iface=MIXER,name='Right PGA Mixer Line1L Switch'
+numid=92,iface=MIXER,name='Right PGA Mixer Line1R Switch'
+numid=94,iface=MIXER,name='Right PGA Mixer Line2R Switch'
+numid=95,iface=MIXER,name='Right PGA Mixer Mic3L Switch'
+numid=96,iface=MIXER,name='Right PGA Mixer Mic3R Switch'
+
+
+amixer contents
+numid=5,iface=MIXER,name='PCM Playback Volume'
+  ; type=INTEGER,access=rw---R--,values=2,min=0,max=127,step=0
+  : values=87,87
+  | dBscale-min=-63.50dB,step=0.50dB,mute=0
+numid=26,iface=MIXER,name='Line DAC Playback Volume'
+  ; type=INTEGER,access=rw---R--,values=2,min=0,max=118,step=0
+  : values=71,71
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=24,iface=MIXER,name='Line Line2 Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=2,min=0,max=118,step=0
+  : values=71,71
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=25,iface=MIXER,name='Line PGA Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=2,min=0,max=118,step=0
+  : values=71,71
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=33,iface=MIXER,name='Line Playback Switch'
+  ; type=BOOLEAN,access=rw------,values=2
+  : values=on,on
+numid=3,iface=MIXER,name='Mono DAC Playback Volume'
+  ; type=INTEGER,access=rw---R--,values=2,min=0,max=118,step=0
+  : values=71,71
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=1,iface=MIXER,name='Mono Line2 Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=2,min=0,max=118,step=0
+  : values=71,71
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=49,iface=MIXER,name='Mono Mixer DACL1 Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=on
+numid=52,iface=MIXER,name='Mono Mixer DACR1 Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=on
+numid=47,iface=MIXER,name='Mono Mixer Line2L Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=50,iface=MIXER,name='Mono Mixer Line2R Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=48,iface=MIXER,name='Mono Mixer PGAL Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=51,iface=MIXER,name='Mono Mixer PGAR Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=2,iface=MIXER,name='Mono PGA Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=2,min=0,max=118,step=0
+  : values=71,71
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=4,iface=MIXER,name='Mono Playback Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=on
+numid=46,iface=MIXER,name='ADC HPF Cut-off'
+  ; type=ENUMERATED,access=rw------,values=2,items=4
+  ; Item #0 'Disabled'
+  ; Item #1 '0.0045xFs'
+  ; Item #2 '0.0125xFs'
+  ; Item #3 '0.025xFs'
+  : values=0,0
+numid=36,iface=MIXER,name='AGC Switch'
+  ; type=BOOLEAN,access=rw------,values=2
+  : values=off,off
+numid=43,iface=MIXER,name='De-emphasis Switch'
+  ; type=BOOLEAN,access=rw------,values=2
+  : values=off,off
+numid=29,iface=MIXER,name='HP DAC Playback Volume'
+  ; type=INTEGER,access=rw---R--,values=2,min=0,max=118,step=0
+  : values=71,71
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=27,iface=MIXER,name='HP Line2 Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=2,min=0,max=118,step=0
+  : values=71,71
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=28,iface=MIXER,name='HP PGA Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=2,min=0,max=118,step=0
+  : values=71,71
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=34,iface=MIXER,name='HP Playback Switch'
+  ; type=BOOLEAN,access=rw------,values=2
+  : values=on,on
+numid=32,iface=MIXER,name='HPCOM DAC Playback Volume'
+  ; type=INTEGER,access=rw---R--,values=2,min=0,max=118,step=0
+  : values=71,71
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=30,iface=MIXER,name='HPCOM Line2 Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=2,min=0,max=118,step=0
+  : values=71,71
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=31,iface=MIXER,name='HPCOM PGA Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=2,min=0,max=118,step=0
+  : values=71,71
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=35,iface=MIXER,name='HPCOM Playback Switch'
+  ; type=BOOLEAN,access=rw------,values=2
+  : values=on,on
+numid=39,iface=MIXER,name='Left AGC Attack time'
+  ; type=ENUMERATED,access=rw------,values=1,items=4
+  ; Item #0 '8ms'
+  ; Item #1 '11ms'
+  ; Item #2 '16ms'
+  ; Item #3 '20ms'
+  : values=0
+numid=41,iface=MIXER,name='Left AGC Decay time'
+  ; type=ENUMERATED,access=rw------,values=1,items=4
+  ; Item #0 '100ms'
+  ; Item #1 '200ms'
+  ; Item #2 '400ms'
+  ; Item #3 '500ms'
+  : values=0
+numid=37,iface=MIXER,name='Left AGC Target level'
+  ; type=ENUMERATED,access=rw------,values=1,items=8
+  ; Item #0 '-5.5dB'
+  ; Item #1 '-8dB'
+  ; Item #2 '-10dB'
+  ; Item #3 '-12dB'
+  ; Item #4 '-14dB'
+  ; Item #5 '-17dB'
+  ; Item #6 '-20dB'
+  ; Item #7 '-24dB'
+  : values=0
+numid=108,iface=MIXER,name='Left DAC Mux'
+  ; type=ENUMERATED,access=rw------,values=1,items=3
+  ; Item #0 'DAC_L1'
+  ; Item #1 'DAC_L3'
+  ; Item #2 'DAC_L2'
+  : values=0
+numid=73,iface=MIXER,name='Left HP Mixer DACL1 Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=on
+numid=14,iface=MIXER,name='Left HP Mixer DACR1 Playback Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=76,iface=MIXER,name='Left HP Mixer DACR1 Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=71,iface=MIXER,name='Left HP Mixer Line2L Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=74,iface=MIXER,name='Left HP Mixer Line2R Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=12,iface=MIXER,name='Left HP Mixer Line2R Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=72,iface=MIXER,name='Left HP Mixer PGAL Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=75,iface=MIXER,name='Left HP Mixer PGAR Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=13,iface=MIXER,name='Left HP Mixer PGAR Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=61,iface=MIXER,name='Left HPCOM Mixer DACL1 Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=on
+numid=20,iface=MIXER,name='Left HPCOM Mixer DACR1 Playback Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=64,iface=MIXER,name='Left HPCOM Mixer DACR1 Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=59,iface=MIXER,name='Left HPCOM Mixer Line2L Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=62,iface=MIXER,name='Left HPCOM Mixer Line2R Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=18,iface=MIXER,name='Left HPCOM Mixer Line2R Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=60,iface=MIXER,name='Left HPCOM Mixer PGAL Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=63,iface=MIXER,name='Left HPCOM Mixer PGAR Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=19,iface=MIXER,name='Left HPCOM Mixer PGAR Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=107,iface=MIXER,name='Left HPCOM Mux'
+  ; type=ENUMERATED,access=rw------,values=1,items=3
+  ; Item #0 'differential of HPLOUT'
+  ; Item #1 'constant VCM'
+  ; Item #2 'single-ended'
+  : values=0
+numid=85,iface=MIXER,name='Left Line Mixer DACL1 Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=on
+numid=8,iface=MIXER,name='Left Line Mixer DACR1 Playback Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=88,iface=MIXER,name='Left Line Mixer DACR1 Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=83,iface=MIXER,name='Left Line Mixer Line2L Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=86,iface=MIXER,name='Left Line Mixer Line2R Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=6,iface=MIXER,name='Left Line Mixer Line2R Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=84,iface=MIXER,name='Left Line Mixer PGAL Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=87,iface=MIXER,name='Left Line Mixer PGAR Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=7,iface=MIXER,name='Left Line Mixer PGAR Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=99,iface=MIXER,name='Left Line1L Mux'
+  ; type=ENUMERATED,access=rw------,values=1,items=2
+  ; Item #0 'single-ended'
+  ; Item #1 'differential'
+  : values=0
+numid=98,iface=MIXER,name='Left Line1R Mux'
+  ; type=ENUMERATED,access=rw------,values=1,items=2
+  ; Item #0 'single-ended'
+  ; Item #1 'differential'
+  : values=0
+numid=97,iface=MIXER,name='Left Line2L Mux'
+  ; type=ENUMERATED,access=rw------,values=1,items=2
+  ; Item #0 'single-ended'
+  ; Item #1 'differential'
+  : values=0
+numid=100,iface=MIXER,name='Left PGA Mixer Line1L Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=on
+numid=101,iface=MIXER,name='Left PGA Mixer Line1R Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=102,iface=MIXER,name='Left PGA Mixer Line2L Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=103,iface=MIXER,name='Left PGA Mixer Mic3L Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=104,iface=MIXER,name='Left PGA Mixer Mic3R Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=45,iface=MIXER,name='PGA Capture Switch'
+  ; type=BOOLEAN,access=rw------,values=2
+  : values=on,on
+numid=44,iface=MIXER,name='PGA Capture Volume'
+  ; type=INTEGER,access=rw---R--,values=2,min=0,max=119,step=0
+  : values=32,32
+  | dBscale-min=0.00dB,step=0.50dB,mute=0
+numid=40,iface=MIXER,name='Right AGC Attack time'
+  ; type=ENUMERATED,access=rw------,values=1,items=4
+  ; Item #0 '8ms'
+  ; Item #1 '11ms'
+  ; Item #2 '16ms'
+  ; Item #3 '20ms'
+  : values=0
+numid=42,iface=MIXER,name='Right AGC Decay time'
+  ; type=ENUMERATED,access=rw------,values=1,items=4
+  ; Item #0 '100ms'
+  ; Item #1 '200ms'
+  ; Item #2 '400ms'
+  ; Item #3 '500ms'
+  : values=0
+numid=38,iface=MIXER,name='Right AGC Target level'
+  ; type=ENUMERATED,access=rw------,values=1,items=8
+  ; Item #0 '-5.5dB'
+  ; Item #1 '-8dB'
+  ; Item #2 '-10dB'
+  ; Item #3 '-12dB'
+  ; Item #4 '-14dB'
+  ; Item #5 '-17dB'
+  ; Item #6 '-20dB'
+  ; Item #7 '-24dB'
+  : values=0
+numid=106,iface=MIXER,name='Right DAC Mux'
+  ; type=ENUMERATED,access=rw------,values=1,items=3
+  ; Item #0 'DAC_R1'
+  ; Item #1 'DAC_R3'
+  ; Item #2 'DAC_R2'
+  : values=0
+numid=17,iface=MIXER,name='Right HP Mixer DACL1 Playback Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=67,iface=MIXER,name='Right HP Mixer DACL1 Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=70,iface=MIXER,name='Right HP Mixer DACR1 Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=on
+numid=65,iface=MIXER,name='Right HP Mixer Line2L Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=15,iface=MIXER,name='Right HP Mixer Line2L Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=68,iface=MIXER,name='Right HP Mixer Line2R Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=66,iface=MIXER,name='Right HP Mixer PGAL Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=16,iface=MIXER,name='Right HP Mixer PGAL Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=69,iface=MIXER,name='Right HP Mixer PGAR Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=23,iface=MIXER,name='Right HPCOM Mixer DACL1 Playback Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=55,iface=MIXER,name='Right HPCOM Mixer DACL1 Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=58,iface=MIXER,name='Right HPCOM Mixer DACR1 Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=on
+numid=53,iface=MIXER,name='Right HPCOM Mixer Line2L Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=21,iface=MIXER,name='Right HPCOM Mixer Line2L Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=56,iface=MIXER,name='Right HPCOM Mixer Line2R Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=54,iface=MIXER,name='Right HPCOM Mixer PGAL Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=22,iface=MIXER,name='Right HPCOM Mixer PGAL Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=57,iface=MIXER,name='Right HPCOM Mixer PGAR Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=105,iface=MIXER,name='Right HPCOM Mux'
+  ; type=ENUMERATED,access=rw------,values=1,items=5
+  ; Item #0 'differential of HPROUT'
+  ; Item #1 'constant VCM'
+  ; Item #2 'single-ended'
+  ; Item #3 'differential of HPLCOM'
+  ; Item #4 'external feedback'
+  : values=0
+numid=11,iface=MIXER,name='Right Line Mixer DACL1 Playback Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=79,iface=MIXER,name='Right Line Mixer DACL1 Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=82,iface=MIXER,name='Right Line Mixer DACR1 Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=on
+numid=77,iface=MIXER,name='Right Line Mixer Line2L Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=9,iface=MIXER,name='Right Line Mixer Line2L Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=80,iface=MIXER,name='Right Line Mixer Line2R Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=78,iface=MIXER,name='Right Line Mixer PGAL Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=10,iface=MIXER,name='Right Line Mixer PGAL Bypass Volume'
+  ; type=INTEGER,access=rw---R--,values=1,min=0,max=118,step=0
+  : values=118
+  | dBscale-min=-59.00dB,step=0.50dB,mute=1
+numid=81,iface=MIXER,name='Right Line Mixer PGAR Bypass Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=91,iface=MIXER,name='Right Line1L Mux'
+  ; type=ENUMERATED,access=rw------,values=1,items=2
+  ; Item #0 'single-ended'
+  ; Item #1 'differential'
+  : values=0
+numid=90,iface=MIXER,name='Right Line1R Mux'
+  ; type=ENUMERATED,access=rw------,values=1,items=2
+  ; Item #0 'single-ended'
+  ; Item #1 'differential'
+  : values=0
+numid=89,iface=MIXER,name='Right Line2R Mux'
+  ; type=ENUMERATED,access=rw------,values=1,items=2
+  ; Item #0 'single-ended'
+  ; Item #1 'differential'
+  : values=0
+numid=93,iface=MIXER,name='Right PGA Mixer Line1L Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=92,iface=MIXER,name='Right PGA Mixer Line1R Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=on
+numid=94,iface=MIXER,name='Right PGA Mixer Line2R Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=95,iface=MIXER,name='Right PGA Mixer Mic3L Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+numid=96,iface=MIXER,name='Right PGA Mixer Mic3R Switch'
+  ; type=BOOLEAN,access=rw------,values=1
+  : values=off
+  
+  
+  
+  numid=68,iface=MIXER,name='Left Input Mixer AUX Switch'
+numid=69,iface=MIXER,name='Left Input Mixer Input PGA Switch'
+numid=66,iface=MIXER,name='Left Input Mixer LINPUT2 Switch'
+numid=67,iface=MIXER,name='Left Input Mixer LINPUT3 Switch'
+numid=73,iface=MIXER,name='Left Input PGA LINPUT1 Switch'
+numid=74,iface=MIXER,name='Left Input PGA LINPUT2 Switch'
+numid=75,iface=MIXER,name='Left Input PGA LINPUT3 Switch'
+numid=3,iface=MIXER,name='Left Input PGA Switch'
+numid=2,iface=MIXER,name='Left Input PGA Volume'
+numid=4,iface=MIXER,name='Left Input PGA ZC Switch'
+numid=57,iface=MIXER,name='Left Output Mixer AUX Bypass Switch'
+numid=60,iface=MIXER,name='Left Output Mixer DACL Switch'
+numid=56,iface=MIXER,name='Left Output Mixer LINPUT3 Bypass Switch'
+numid=58,iface=MIXER,name='Left Output Mixer Left Input Mixer Switch'
+numid=59,iface=MIXER,name='Left Output Mixer Right Input Mixer Switch'
+
+
+numid3 ： 使能Left Input PGA；
+
+numid73： 令Left Input PGA选择LINPUT1输入源；
+
+numid69： 令Left Input Mixer选择Left Input PGA输入源；
+
+numid58： 令Left Output Mixer选择Left Input Mixer输入源；
+
+numid43： 使能LINEOUT1。
+
+Left Output Mixer的输入源选择
+static const struct snd_kcontrol_new wm8900_loutmix_controls[] = {
+SOC_DAPM_SINGLE("LINPUT3 Bypass Switch", WM8900_REG_LOUTMIXCTL1, 7, 1, 0),
+SOC_DAPM_SINGLE("AUX Bypass Switch", WM8900_REG_AUXOUT_CTL, 7, 1, 0),
+SOC_DAPM_SINGLE("Left Input Mixer Switch", WM8900_REG_BYPASS1, 7, 1, 0),
+SOC_DAPM_SINGLE("Right Input Mixer Switch", WM8900_REG_BYPASS2, 3, 1, 0),
+SOC_DAPM_SINGLE("DACL Switch", WM8900_REG_LOUTMIXCTL1, 8, 1, 0),
+};
+
+static const struct snd_soc_dapm_widget wm8900_dapm_widgets[] = {
+/* Externally visible pins */
+......省略......
+/* Input */
+......省略......
+SND_SOC_DAPM_MIXER("Left Input Mixer", WM8900_REG_POWER2, 5, 0,
+		   wm8900_linmix_controls,
+		   ARRAY_SIZE(wm8900_linmix_controls)),
+......省略......
+/* Output */
+......省略......
+SND_SOC_DAPM_MIXER("Left Output Mixer", WM8900_REG_POWER3, 3, 0,
+		   wm8900_loutmix_controls,
+		   ARRAY_SIZE(wm8900_loutmix_controls)),
+......省略......
+};
+MIXER：多个输入源混合成一个输出，用SND_SOC_DAPM_MIXER定义这个widget，类型为snd_soc_dapm_mixer；多路输入源混合成一个输出
+MUX：多路选择器，多路输入，但只能选择一路作为输出，用SND_SOC_DAPM_MUX定义这个widget，类型为snd_soc_dapm_mux；多路选择器，多路输入，但只能选择一路作为输出
+PGA：单路输入，单路输出，带gain调整的部件，用SND_SOC_DAPM_PGA定义这个widget，类型为snd_soc_dapm_pga。
+
+
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 3.14.28-ga3d18553-dirty (z@z-s) (gcc version 4.9.1 (GCC) ) #2 SMP PREEMPT Mon May 6 22:18:30 CST 2024
+[    0.000000] CPU: ARMv7 Processor [412fc09a] revision 10 (ARMv7), cr=10c53c7d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine model: Freescale i.MX6 DualLite SABRE Smart Device Board
+[    0.000000] cma: CMA: reserved 320 MiB at 3c000000
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] On node 0 totalpages: 262144
+[    0.000000] free_area_init_node: node 0, pgdat 80828e00, node_mem_map ab757000
+[    0.000000]   DMA zone: 2048 pages used for memmap
+[    0.000000]   DMA zone: 0 pages reserved
+[    0.000000]   DMA zone: 262144 pages, LIFO batch:31
+[    0.000000] PERCPU: Embedded 8 pages/cpu @ab733000 s8832 r8192 d15744 u32768
+[    0.000000] pcpu-alloc: s8832 r8192 d15744 u32768 alloc=8*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 260096
+[    0.000000] Kernel command line: console=ttymxc0,115200 root=/dev/mmcblk3p2 rootwait rw video=mxcfb0:dev=ldb,if=RGB24 video=mxcfb1:dev=ldb,if=RGB24 consoleblank=0
+[    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 702324K/1048576K available (5683K kernel code, 272K rwdata, 2012K rodata, 352K init, 397K bss, 346252K reserved, 0K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+[    0.000000]     vmalloc : 0xc0800000 - 0xff000000   (1000 MB)
+[    0.000000]     lowmem  : 0x80000000 - 0xc0000000   (1024 MB)
+[    0.000000]     pkmap   : 0x7fe00000 - 0x80000000   (   2 MB)
+[    0.000000]     modules : 0x7f000000 - 0x7fe00000   (  14 MB)
+[    0.000000]       .text : 0x80008000 - 0x8078c0ac   (7697 kB)
+[    0.000000]       .init : 0x8078d000 - 0x807e5280   ( 353 kB)
+[    0.000000]       .data : 0x807e6000 - 0x8082a140   ( 273 kB)
+[    0.000000]        .bss : 0x8082a14c - 0x8088d874   ( 398 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] 	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=2.
+[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] L310 cache controller enabled
+[    0.000000] l2x0: 16 ways, CACHE_ID 0x410000c8, AUX_CTRL 0x32050000, Cache size: 512 kB
+[    0.000000] wwwwww ktc256sign = ff
+[    0.000000] failed to set parent of clk gpu2d_core_sel to pll2_pfd1_594m: -22
+[    0.000000] Switching to timer-based delay loop
+[    0.000006] sched_clock: 32 bits at 3000kHz, resolution 333ns, wraps every 1431655765682ns
+[    0.000998] Console: colour dummy device 80x30
+[    0.001019] Calibrating delay loop (skipped), value calculated using timer frequency.. 6.00 BogoMIPS (lpj=3000)
+[    0.001033] pid_max: default: 32768 minimum: 301
+[    0.001202] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.001216] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.008660] CPU: Testing write buffer coherency: ok
+[    0.008940] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.009009] Setting up static identity map for 0x10567430 - 0x10567488
+[    0.015387] CPU1: Booted secondary processor
+[    0.015416] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.015524] Brought up 2 CPUs
+[    0.015541] SMP: Total of 2 processors activated.
+[    0.015548] CPU: All CPU(s) started in SVC mode.
+[    0.016143] devtmpfs: initialized
+[    0.019944] VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+[    0.020267] pinctrl core: initialized pinctrl subsystem
+[    0.020591] regulator-dummy: no parameters
+[    0.037780] NET: Registered protocol family 16
+[    0.045816] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.046366] cpuidle: using governor ladder
+[    0.046377] cpuidle: using governor menu
+[    0.046488] CPU identified as i.MX6DL, silicon rev 1.3
+[    0.046582] Use WDOG1 as reset source
+[    0.048241] genirq: Setting trigger mode 2 for irq 64 failed (gic_set_type+0x0/0xf0)
+[    0.055750] syscon 20c8000.anatop: regmap [mem 0x020c8000-0x020c8fff] registered
+[    0.056037] vdd1p1: 800 <--> 1375 mV at 1100 mV 
+[    0.056409] vdd3p0: 2800 <--> 3150 mV at 3000 mV 
+[    0.056772] vdd2p5: 2000 <--> 2750 mV at 2400 mV 
+[    0.057116] vddarm: 725 <--> 1450 mV 
+[    0.057660] vddpu: 725 <--> 1450 mV 
+[    0.058023] vddsoc: 725 <--> 1450 mV 
+[    0.060066] syscon 20e0000.iomuxc-gpr: regmap [mem 0x020e0000-0x020e0037] registered
+[    0.063347] syscon 21bc000.ocotp-ctrl: regmap [mem 0x021bc000-0x021bffff] registered
+[    0.068064] hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
+[    0.068076] hw-breakpoint: maximum watchpoint size is 4 bytes.
+[    0.069383] imx6dl-pinctrl 20e0000.iomuxc: initialized IMX pinctrl driver
+[    0.080506] bio: create slab <bio-0> at 0
+[    0.082719] mxs-dma 110000.dma-apbh: initialized
+[    0.083455] usb_otg_vbus: 5000 mV 
+[    0.083715] usb_h1_vbus: 5000 mV 
+[    0.083943] tlv320aic3x-supply: no parameters
+[    0.084167] sensor-supply: 3300 mV 
+[    0.084393] 2P5V: 2500 mV 
+[    0.084610] 3P3V: 3300 mV 
+[    0.085062] SCSI subsystem initialized
+[    0.085331] usbcore: registered new interface driver usbfs
+[    0.085405] usbcore: registered new interface driver hub
+[    0.085525] usbcore: registered new device driver usb
+[    0.085724] usbphy_nop1.10 supply vcc not found, using dummy regulator
+[    0.085835] usbphy_nop2.11 supply vcc not found, using dummy regulator
+[    0.087109] i2c i2c-0: IMX I2C adapter registered
+[    0.087780] i2c i2c-1: IMX I2C adapter registered
+[    0.088720] i2c i2c-2: IMX I2C adapter registered
+[    0.088865] Linux video capture interface: v2.00
+[    0.088916] pps_core: LinuxPPS API ver. 1 registered
+[    0.088924] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.088946] PTP clock support registered
+[    0.090710] imx-ipuv3 2400000.ipu: IPU DMFC NORMAL mode: 1(0~1), 5B(4,5), 5F(6,7)
+[    0.091867] mxc_mipi_csi2 21dc000.mipi_csi: i.MX MIPI CSI2 driver probed
+[    0.091882] mxc_mipi_csi2 21dc000.mipi_csi: i.MX MIPI CSI2 dphy version is 0x3130302a
+[    0.091965] MIPI CSI2 driver module loaded
+[    0.092056] Advanced Linux Sound Architecture Driver Initialized.
+[    0.093250] Switched to clocksource mxc_timer1
+[    0.097015] NET: Registered protocol family 2
+[    0.097807] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.097887] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.098010] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.098071] TCP: reno registered
+[    0.098086] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    0.098127] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    0.098405] NET: Registered protocol family 1
+[    0.098672] RPC: Registered named UNIX socket transport module.
+[    0.098683] RPC: Registered udp transport module.
+[    0.098691] RPC: Registered tcp transport module.
+[    0.098697] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.099146] hw perfevents: enabled with ARMv7 Cortex-A9 PMU driver, 7 counters available
+[    0.100759] Bus freq driver module loaded
+[    0.101591] futex hash table entries: 512 (order: 3, 32768 bytes)
+[    0.108459] VFS: Disk quotas dquot_6.5.2
+[    0.108716] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    0.111180] NFS: Registering the id_resolver key type
+[    0.111229] Key type id_resolver registered
+[    0.111262] Key type id_legacy registered
+[    0.111493] fuse init (API version 7.22)
+[    0.111945] msgmni has been set to 2011
+[    0.115093] io scheduler noop registered
+[    0.115105] io scheduler deadline registered
+[    0.115326] io scheduler cfq registered (default)
+[    0.117111] backlight.20 supply power not found, using dummy regulator
+[    0.118680] ldb ldb.13: split mode
+[    0.118831] ldb ldb.13: split mode or dual mode, ignoring second output
+[    0.119478] mxc_sdc_fb fb.18: registered mxc display driver ldb
+[    0.135334] imx-ipuv3 2400000.ipu: IPU DMFC DP HIGH RESOLUTION: 1(0,1), 5B(2~5), 5F(6,7)
+[    0.203023] Console: switching to colour frame buffer device 240x67
+[    0.238041] ldb ldb.13: LVDS channel1 is not online
+[    0.238055] mxc_sdc_fb fb.19: NO mxc display driver found!
+[    0.241278] imx-sdma 20ec000.sdma: no iram assigned, using external mem
+[    0.241621] imx-sdma 20ec000.sdma: no event needs to be remapped
+[    0.241853] imx-sdma 20ec000.sdma: loaded firmware 3.1
+[    0.244758] imx-sdma 20ec000.sdma: initialized
+[    0.246381] pfuze100-regulator 0-0008: Full layer: 2, Metal layer: 1
+[    0.246991] pfuze100-regulator 0-0008: FAB: 0, FIN: 0
+[    0.247003] pfuze100-regulator 0-0008: pfuze100 found.
+[    0.248551] SW1AB: 300 <--> 1875 mV at 1175 mV 
+[    0.249958] SW1C: 300 <--> 1875 mV at 1175 mV 
+[    0.250750] SW2: 800 <--> 3300 mV at 3300 mV 
+[    0.251530] SW3A: 400 <--> 1975 mV at 1500 mV 
+[    0.252342] SW3B: 400 <--> 1975 mV at 1500 mV 
+[    0.253132] SW4: 800 <--> 3300 mV at 3150 mV 
+[    0.253918] SWBST: 5000 <--> 5150 mV at 5000 mV 
+[    0.254699] VSNVS: 1000 <--> 3000 mV at 3000 mV 
+[    0.254867] VREFDDR: 750 mV 
+[    0.255636] VGEN1: 800 <--> 1550 mV at 1500 mV 
+[    0.256424] VGEN2: 800 <--> 1550 mV at 1500 mV 
+[    0.257222] VGEN3: 1800 <--> 3300 mV at 2500 mV 
+[    0.258020] VGEN4: 1800 <--> 3300 mV at 1800 mV 
+[    0.258814] VGEN5: 1800 <--> 3300 mV at 2800 mV 
+[    0.259580] VGEN6: 1800 <--> 3300 mV at 3300 mV 
+[    0.259964] Serial: IMX driver
+[    0.260347] 2020000.serial: ttymxc0 at MMIO 0x2020000 (irq = 58, base_baud = 5000000) is a IMX
+[    1.120624] console [ttymxc0] enabled
+[    1.125048] 21e8000.serial: ttymxc1 at MMIO 0x21e8000 (irq = 59, base_baud = 5000000) is a IMX
+[    1.134173] 21ec000.serial: ttymxc2 at MMIO 0x21ec000 (irq = 60, base_baud = 5000000) is a IMX
+[    1.143243] 21f0000.serial: ttymxc3 at MMIO 0x21f0000 (irq = 61, base_baud = 5000000) is a IMX
+[    1.152358] 21f4000.serial: ttymxc4 at MMIO 0x21f4000 (irq = 62, base_baud = 5000000) is a IMX
+[    1.161343] serial: Freescale lpuart driver
+[    1.166769] HC595 INIT SUCCESS!!!!!!!!
+[    1.170779] imx sema4 driver is registered.
+[    1.175059] [drm] Initialized drm 1.1.0 20060810
+[    1.180069] [drm] Initialized vivante 1.0.0 20120216 on minor 0
+[    1.193765] brd: module loaded
+[    1.201031] loop: module loaded
+[    1.204697] genirq: Setting trigger mode 2 for irq 64 failed (gic_set_type+0x0/0xf0)
+[    1.213595] spi_imx 200c000.ecspi: probed
+[    1.218228] vcan: Virtual CAN interface driver
+[    1.222708] CAN device driver interface
+[    1.227021] 2090000.can supply xceiver not found, using dummy regulator
+[    1.234339] flexcan 2090000.can: device registered (reg_base=c0988000, irq=142)
+[    1.241834] 2094000.can supply xceiver not found, using dummy regulator
+[    1.249096] flexcan 2094000.can: device registered (reg_base=c0990000, irq=143)
+[    1.256775] zty mcp251x rst gpio ok!
+[    1.462321] spi1.0 supply vdd not found, using dummy regulator
+[    1.468238] spi1.0 supply xceiver not found, using dummy regulator
+[    1.574654] zty mcp251x hw probe error!
+[    1.580165] 2188000.ethernet supply phy not found, using dummy regulator
+[    1.588649] pps pps0: new PPS source ptp0
+[    1.593686] libphy: fec_enet_mii_bus: probed
+[    1.597991] fec_enet_mii_bus: probed
+[    1.703892] registered phy ethernet-phy at address 1
+[    1.709479] fec 2188000.ethernet eth0: registered PHC device 0
+[    1.718233] eim clk: 135000000Hz
+[    1.763327] zty write reg error!
+[    1.768974] AX88796B: not found (-19).
+[    1.772968] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.779554] ehci-mxc: Freescale On-Chip EHCI Host driver
+[    1.785106] usbcore: registered new interface driver usb-storage
+[    1.791296] usbcore: registered new interface driver usbserial
+[    1.797198] usbcore: registered new interface driver usbserial_generic
+[    1.803791] usbserial: USB Serial support registered for generic
+[    1.809873] usbcore: registered new interface driver option
+[    1.815510] usbserial: USB Serial support registered for GSM modem (1-port)
+[    1.823405] 2184800.usbmisc supply vbus-wakeup not found, using dummy regulator
+[    1.834807] ci_hdrc ci_hdrc.0: EHCI Host Controller
+[    1.839745] ci_hdrc ci_hdrc.0: new USB bus registered, assigned bus number 1
+[    1.852291] ci_hdrc ci_hdrc.0: USB 2.0 started, EHCI 1.00
+[    1.858698] hub 1-0:1.0: USB hub found
+[    1.862524] hub 1-0:1.0: 1 port detected
+[    1.870362] ci_hdrc ci_hdrc.1: doesn't support gadget
+[    1.875465] ci_hdrc ci_hdrc.1: EHCI Host Controller
+[    1.880395] ci_hdrc ci_hdrc.1: new USB bus registered, assigned bus number 2
+[    1.893284] ci_hdrc ci_hdrc.1: USB 2.0 started, EHCI 1.00
+[    1.899495] hub 2-0:1.0: USB hub found
+[    1.903313] hub 2-0:1.0: 1 port detected
+[    1.908095] mousedev: PS/2 mouse device common for all mice
+[    1.914594] rtc-pcf8563 1-0051: chip found, driver version 0.4.3
+[    1.922676] rtc-pcf8563 1-0051: low voltage detected, date/time is not reliable.
+[    1.930362] rtc-pcf8563 1-0051: rtc core: registered rtc-pcf8563 as rtc0
+[    1.937176] i2c /dev entries driver
+[    1.942887] mxc_v4l2_output v4l2_out.23: V4L2 device registered as video16
+[    1.949995] mxc_v4l2_output v4l2_out.23: V4L2 device registered as video17
+[    1.957282] usbcore: registered new interface driver uvcvideo
+[    1.963060] USB Video Class driver (1.1.1)
+[    1.967184] gspca_main: v2.14.0 registered
+[    1.971391] usbcore: registered new interface driver ov519
+[    1.976959] usbcore: registered new interface driver ov534
+[    1.982525] usbcore: registered new interface driver ov534_9
+[    1.988621] imx2-wdt 20bc000.wdog: IMX2+ Watchdog Timer enabled. timeout=60s (nowayout=0)
+[    1.997279] sdhci: Secure Digital Host Controller Interface driver
+[    2.003488] sdhci: Copyright(c) Pierre Ossman
+[    2.007866] sdhci-pltfm: SDHCI platform and OF driver helper
+[    2.014342] sdhci-esdhc-imx 2190000.usdhc: assigned as wifi host
+[    2.020691] mmc0: no vqmmc regulator found
+[    2.024831] mmc0: no vmmc regulator found
+[    2.058283] mmc0: SDHCI controller on 2190000.usdhc [2190000.usdhc] using ADMA
+[    2.071625] mmc3: no vqmmc regulator found
+[    2.075767] mmc3: no vmmc regulator found
+[    2.109278] mmc3: SDHCI controller on 219c000.usdhc [219c000.usdhc] using ADMA
+[    2.116815] mmc0: host does not support reading read-only switch. assuming write-enable.
+[    2.117116] galcore: clk_get vg clock failed, disable vg!
+[    2.117133] Galcore version 5.0.11.25762
+[    2.143665] mmc0: new high speed SDHC card at address aaaa
+[    2.149752] mmcblk0: mmc0:aaaa SC32G 29.7 GiB 
+[    2.158075]  mmcblk0: p1
+[    2.252519] mmc3: BKOPS_EN bit is not set
+[    2.270467] mmc3: new high speed DDR MMC card at address 0001
+[    2.277073] mmcblk3: mmc3:0001 S40004 3.64 GiB 
+[    2.288333] mmcblk3boot0: mmc3:0001 S40004 partition 1 4.00 MiB
+[    2.294685] mmcblk3boot1: mmc3:0001 S40004 partition 2 4.00 MiB
+[    2.301048] mmcblk3rpmb: mmc3:0001 S40004 partition 3 4.00 MiB
+[    2.311576]  mmcblk3: p1 p2 p3 p4 < p5 p6 >
+[    2.322548]  mmcblk3boot1: unknown partition table
+[    2.331135]  mmcblk3boot0: unknown partition table
+[    2.460403] mxc_vdoa 21e4000.vdoa: i.MX Video Data Order Adapter(VDOA) driver probed
+[    2.468411] zty iramsize is 0x0!
+[    2.472052] mxc_vpu 2040000.vpu: VPU initialized
+[    2.719770] caam 2100000.caam: Instantiated RNG4 SH0
+[    2.965216] caam 2100000.caam: Instantiated RNG4 SH1
+[    2.970215] caam 2100000.caam: device ID = 0x0a160100 (Era 4)
+[    2.975988] caam 2100000.caam: job rings = 2, qi = 0
+[    2.997583] caam algorithms registered in /proc/crypto
+[    3.006512] caam_jr 2101000.jr0: registering rng-caam
+[    3.012480] platform caam_sm: blkkey_ex: 4 keystore units available
+[    3.019725] snvs-secvio 20cc000.caam-snvs: violation handlers armed - non-secure state
+[    3.027939] hidraw: raw HID events driver (C) Jiri Kosina
+[    3.033573] usbcore: registered new interface driver usbhid
+[    3.039175] usbhid: USB HID core driver
+[    3.045381] fsl-asrc 2034000.asrc: driver registered
+[    3.054689] zty dapm new controls name Mic Jack!
+[    3.059351] zty dapm new controls name Line In Jack!
+[    3.064342] zty dapm new controls name Headphone Jack!
+[    3.069504] zty dapm new controls name Line Out Jack!
+[    3.074579] zty dapm new controls name Ext Spk!
+[    3.079191] zty dapm new controls name Left DAC!
+[    3.083839] zty dapm new controls name Left DAC Mux!
+[    3.088835] zty dapm new controls name Left HPCOM Mux!
+[    3.093999] zty dapm new controls name Left Line Out!
+[    3.099074] zty dapm new controls name Left HP Out!
+[    3.103976] zty dapm new controls name Left HP Com!
+[    3.108876] zty dapm new controls name Right DAC!
+[    3.113604] zty dapm new controls name Right DAC Mux!
+[    3.118678] zty dapm new controls name Right HPCOM Mux!
+[    3.123925] zty dapm new controls name Right Line Out!
+[    3.129086] zty dapm new controls name Right HP Out!
+[    3.134073] zty dapm new controls name Right HP Com!
+[    3.139060] zty dapm new controls name Left ADC!
+[    3.143699] zty dapm new controls name Left PGA Mixer!
+[    3.148860] zty dapm new controls name Left Line1L Mux!
+[    3.154114] zty dapm new controls name Left Line1R Mux!
+[    3.159365] zty dapm new controls name Left Line2L Mux!
+[    3.164614] zty dapm new controls name Right ADC!
+[    3.169341] zty dapm new controls name Right PGA Mixer!
+[    3.174589] zty dapm new controls name Right Line1L Mux!
+[    3.179923] zty dapm new controls name Right Line1R Mux!
+[    3.185257] zty dapm new controls name Right Line2R Mux!
+[    3.190591] zty dapm new controls name GPIO1 dmic modclk!
+[    3.196017] zty dapm new controls name DMic Rate 128!
+[    3.201093] zty dapm new controls name DMic Rate 64!
+[    3.206080] zty dapm new controls name DMic Rate 32!
+[    3.211066] zty dapm new controls name Mic Bias!
+[    3.215707] zty dapm new controls name Left Line Mixer!
+[    3.220954] zty dapm new controls name Right Line Mixer!
+[    3.226288] zty dapm new controls name Left HP Mixer!
+[    3.231361] zty dapm new controls name Right HP Mixer!
+[    3.236522] zty dapm new controls name Left HPCOM Mixer!
+[    3.241856] zty dapm new controls name Right HPCOM Mixer!
+[    3.247277] zty dapm new controls name LLOUT!
+[    3.251656] zty dapm new controls name RLOUT!
+[    3.256042] zty dapm new controls name HPLOUT!
+[    3.260512] zty dapm new controls name HPROUT!
+[    3.264978] zty dapm new controls name HPLCOM!
+[    3.269444] zty dapm new controls name HPRCOM!
+[    3.273910] zty dapm new controls name MIC3L!
+[    3.278289] zty dapm new controls name MIC3R!
+[    3.282669] zty dapm new controls name LINE1L!
+[    3.287134] zty dapm new controls name LINE1R!
+[    3.291599] zty dapm new controls name LINE2L!
+[    3.296069] zty dapm new controls name LINE2R!
+[    3.300539] zty dapm new controls name Detection!
+[    3.305267] zty dapm new controls name Playback!
+[    3.309907] zty dapm new controls name Capture!
+[    3.314512] zty dapm new controls name Mono Out!
+[    3.319160] zty dapm new controls name Mono Mixer!
+[    3.323975] zty dapm new controls name MONO_LOUT!
+[    3.328702] hndz route sink Mono Mixer source Left Line2L Mux!
+[    3.334566] hndz route sink Mono Mixer source Left PGA Mixer!
+[    3.340343] hndz route sink Mono Mixer source Left DAC Mux!
+[    3.345944] hndz route sink Mono Mixer source Right Line2R Mux!
+[    3.351891] hndz route sink Mono Mixer source Right PGA Mixer!
+[    3.357758] hndz route sink Mono Mixer source Right DAC Mux!
+[    3.363447] hndz route sink Mono Out source Mono Mixer!
+[    3.368697] hndz route sink MONO_LOUT source Mono Out!
+[    3.373999] hndz route sink Left Line1L Mux source LINE1L!
+[    3.379519] hndz route sink Left Line1L Mux source LINE1L!
+[    3.385036] hndz route sink Left Line1R Mux source LINE1R!
+[    3.390551] hndz route sink Left Line1R Mux source LINE1R!
+[    3.396064] hndz route sink Left Line2L Mux source LINE2L!
+[    3.401578] hndz route sink Left Line2L Mux source LINE2L!
+[    3.407091] hndz route sink Left PGA Mixer source Left Line1L Mux!
+[    3.413301] hndz route sink Left PGA Mixer source Left Line1R Mux!
+[    3.419512] hndz route sink Left PGA Mixer source Left Line2L Mux!
+[    3.425722] hndz route sink Left PGA Mixer source MIC3L!
+[    3.431063] hndz route sink Left PGA Mixer source MIC3R!
+[    3.436403] hndz route sink Left ADC source Left PGA Mixer!
+[    3.442002] hndz route sink Left ADC source GPIO1 dmic modclk!
+[    3.447861] hndz route sink Right Line1R Mux source LINE1R!
+[    3.453461] hndz route sink Right Line1R Mux source LINE1R!
+[    3.459061] hndz route sink Right Line1L Mux source LINE1L!
+[    3.464662] hndz route sink Right Line1L Mux source LINE1L!
+[    3.470262] hndz route sink Right Line2R Mux source LINE2R!
+[    3.475863] hndz route sink Right Line2R Mux source LINE2R!
+[    3.481463] hndz route sink Right PGA Mixer source Right Line1L Mux!
+[    3.487845] hndz route sink Right PGA Mixer source Right Line1R Mux!
+[    3.494227] hndz route sink Right PGA Mixer source Right Line2R Mux!
+[    3.500609] hndz route sink Right PGA Mixer source MIC3L!
+[    3.506036] hndz route sink Right PGA Mixer source MIC3R!
+[    3.511464] hndz route sink Right ADC source Right PGA Mixer!
+[    3.517236] hndz route sink Right ADC source GPIO1 dmic modclk!
+[    3.523180] hndz route sink GPIO1 dmic modclk source DMic Rate 128!
+[    3.529471] hndz route sink GPIO1 dmic modclk source DMic Rate 64!
+[    3.535677] hndz route sink GPIO1 dmic modclk source DMic Rate 32!
+[    3.541881] hndz route sink Left DAC Mux source Left DAC!
+[    3.547309] hndz route sink Left DAC Mux source Left DAC!
+[    3.552738] hndz route sink Left DAC Mux source Left DAC!
+[    3.558171] hndz route sink Right DAC Mux source Right DAC!
+[    3.563774] hndz route sink Right DAC Mux source Right DAC!
+[    3.569376] hndz route sink Right DAC Mux source Right DAC!
+[    3.574975] hndz route sink Left Line Mixer source Left Line2L Mux!
+[    3.581273] hndz route sink Left Line Mixer source Left PGA Mixer!
+[    3.587483] hndz route sink Left Line Mixer source Left DAC Mux!
+[    3.593519] hndz route sink Left Line Mixer source Right Line2R Mux!
+[    3.599926] hndz route sink Left Line Mixer source Right PGA Mixer!
+[    3.606227] hndz route sink Left Line Mixer source Right DAC Mux!
+[    3.612359] hndz route sink Left Line Out source Left Line Mixer!
+[    3.618483] hndz route sink Left Line Out source Left DAC Mux!
+[    3.624344] hndz route sink LLOUT source Left Line Out!
+[    3.629595] hndz route sink Right Line Mixer source Left Line2L Mux!
+[    3.635977] hndz route sink Right Line Mixer source Left PGA Mixer!
+[    3.642273] hndz route sink Right Line Mixer source Left DAC Mux!
+[    3.648396] hndz route sink Right Line Mixer source Right Line2R Mux!
+[    3.654865] hndz route sink Right Line Mixer source Right PGA Mixer!
+[    3.661253] hndz route sink Right Line Mixer source Right DAC Mux!
+[    3.667463] hndz route sink Right Line Out source Right Line Mixer!
+[    3.673756] hndz route sink Right Line Out source Right DAC Mux!
+[    3.679789] hndz route sink RLOUT source Right Line Out!
+[    3.685125] hndz route sink Left HP Mixer source Left Line2L Mux!
+[    3.691255] hndz route sink Left HP Mixer source Left PGA Mixer!
+[    3.697290] hndz route sink Left HP Mixer source Left DAC Mux!
+[    3.703152] hndz route sink Left HP Mixer source Right Line2R Mux!
+[    3.709390] hndz route sink Left HP Mixer source Right PGA Mixer!
+[    3.715518] hndz route sink Left HP Mixer source Right DAC Mux!
+[    3.721469] hndz route sink Left HP Out source Left HP Mixer!
+[    3.727253] hndz route sink Left HP Out source Left DAC Mux!
+[    3.732941] hndz route sink HPLOUT source Left HP Out!
+[    3.738105] hndz route sink Right HP Mixer source Left Line2L Mux!
+[    3.744317] hndz route sink Right HP Mixer source Left PGA Mixer!
+[    3.750440] hndz route sink Right HP Mixer source Left DAC Mux!
+[    3.756390] hndz route sink Right HP Mixer source Right Line2R Mux!
+[    3.762690] hndz route sink Right HP Mixer source Right PGA Mixer!
+[    3.768900] hndz route sink Right HP Mixer source Right DAC Mux!
+[    3.774936] hndz route sink Right HP Out source Right HP Mixer!
+[    3.780883] hndz route sink Right HP Out source Right DAC Mux!
+[    3.786742] hndz route sink HPROUT source Right HP Out!
+[    3.791993] hndz route sink Left HPCOM Mixer source Left Line2L Mux!
+[    3.798375] hndz route sink Left HPCOM Mixer source Left PGA Mixer!
+[    3.804670] hndz route sink Left HPCOM Mixer source Left DAC Mux!
+[    3.810792] hndz route sink Left HPCOM Mixer source Right Line2R Mux!
+[    3.817264] hndz route sink Left HPCOM Mixer source Right PGA Mixer!
+[    3.823648] hndz route sink Left HPCOM Mixer source Right DAC Mux!
+[    3.829857] hndz route sink Left HPCOM Mux source Left HP Mixer!
+[    3.835893] hndz route sink Left HPCOM Mux source Left HPCOM Mixer!
+[    3.842189] hndz route sink Left HPCOM Mux source Left HPCOM Mixer!
+[    3.848486] hndz route sink Left HP Com source Left HPCOM Mux!
+[    3.854349] hndz route sink HPLCOM source Left HP Com!
+[    3.859515] hndz route sink Right HPCOM Mixer source Left Line2L Mux!
+[    3.865984] hndz route sink Right HPCOM Mixer source Left PGA Mixer!
+[    3.872427] hndz route sink Right HPCOM Mixer source Left DAC Mux!
+[    3.878643] hndz route sink Right HPCOM Mixer source Right Line2R Mux!
+[    3.885200] hndz route sink Right HPCOM Mixer source Right PGA Mixer!
+[    3.891670] hndz route sink Right HPCOM Mixer source Right DAC Mux!
+[    3.897967] hndz route sink Right HPCOM Mux source Right HP Mixer!
+[    3.904176] hndz route sink Right HPCOM Mux source Right HPCOM Mixer!
+[    3.910676] hndz route sink Right HPCOM Mux source Right HPCOM Mixer!
+[    3.917196] hndz route sink Right HPCOM Mux source Left HPCOM Mixer!
+[    3.923587] hndz route sink Right HPCOM Mux source Right HPCOM Mixer!
+[    3.930058] hndz route sink Right HP Com source Right HPCOM Mux!
+[    3.936093] hndz route sink HPRCOM source Right HP Com!
+[    3.941376] zty dapm new controls name CPU-Playback!
+[    3.946370] zty dapm new controls name CPU-Capture!
+[    3.953464] imx-tlv320aic3x sound.17: tlv320aic3x-hifi <-> 202c000.ssi mapping ok
+[    3.961005] hndz route sink Playback source CPU-Playback!
+[    3.966448] hndz route sink CPU-Capture source Capture!
+[    3.971703] hndz route sink Headphone Jack source HPLOUT!
+[    3.977135] hndz route sink Headphone Jack source HPROUT!
+[    3.984845] NET: Registered protocol family 26
+[    3.989354] IPVS: Registered protocols ()
+[    3.993441] IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
+[    4.000914] IPVS: Creating netns size=784 id=0
+[    4.005422] IPVS: ipvs loaded.
+[    4.008640] arp_tables: (C) 2002 David S. Miller
+[    4.013334] TCP: cubic registered
+[    4.016679] NET: Registered protocol family 17
+[    4.021157] can: controller area network core (rev 20120528 abi 9)
+[    4.027433] NET: Registered protocol family 29
+[    4.031925] can: raw protocol (rev 20120528)
+[    4.036224] can: broadcast manager protocol (rev 20120528 t)
+[    4.041917] can: netlink gateway (rev 20130117) max_hops=1
+[    4.047622] 8021q: 802.1Q VLAN Support v1.8
+[    4.051891] Key type dns_resolver registered
+[    4.056678] failed to disable 1.2 GHz OPP
+[    4.061993] SWBST: disabling
+[    4.064943] SW4: disabling
+[    4.067701] sensor-supply: disabling
+[    4.071309] tlv320aic3x-supply: disabling
+[    4.075354] regulator-dummy: disabling
+[    4.081431] rtc-pcf8563 1-0051: low voltage detected, date/time is not reliable.
+[    4.088886] rtc-pcf8563 1-0051: setting system clock to 2000-01-11 02:17:37 UTC (947557057)
+[    4.108799] ALSA device list:
+[    4.111817]   #0: tlv320aic3x-audio
+[    4.128617] EXT3-fs (mmcblk3p2): error: couldn't mount because of unsupported optional features (240)
+[    4.138430] EXT2-fs (mmcblk3p2): error: couldn't mount because of unsupported optional features (240)
+[    4.155412] EXT4-fs (mmcblk3p2): mounted filesystem with ordered data mode. Opts: (null)
+[    4.163563] VFS: Mounted root (ext4 filesystem) on device 179:10.
+[    4.171326] devtmpfs: mounted
+[    4.174938] Freeing unused kernel memory: 352K (8078d000 - 807e5000)
+[    4.352818] EXT4-fs (mmcblk3p6): mounted filesystem with ordered data mode. Opts: (null)
+[    4.486798] udevd[159]: starting version 182
+[    4.595328] random: nonblocking pool is initialized
+[    5.215857] ERROR: v4l2 capture: slave not found!
+[    5.219686] ERROR: v4l2 capture: slave not found!
+[    5.660621] FAT-fs (mmcblk0p1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+[    5.761365] EXT4-fs (mmcblk3p2): re-mounted. Opts: data=ordered
+[    6.732042] fec 2188000.ethernet eth0: Freescale FEC PHY driver [Generic PHY] (mii_bus:phy_addr=2188000.ethernet:01, irq=-1)
+[    6.924066] flexcan 2090000.can can0: writing ctrl=0x13292085
+[    6.991741] flexcan 2094000.can can1: writing ctrl=0x13292085
+[    7.636294] fec 2188000.ethernet eth0: Freescale FEC PHY driver [Generic PHY] (mii_bus:phy_addr=2188000.ethernet:01, irq=-1)
+[   17.656711] zty fep speed 1000!
+[   17.660202] libphy: 2188000.ethernet:01 - Link is Up - 1000/Full
+
+
+
+control接口对于mixe(混音)来说
+
+static struct snd_kcontrol_new my_control __devinitdata = {
+    .iface = SNDRV_CTL_ELEM_IFACE_MIXER,
+    .name = "PCM Playback Switch",
+    .index = 0,
+    .access = SNDRV_CTL_ELEM_ACCESS_READWRITE,
+    .private_value = 0xffff,
+    .info = my_control_info,
+    .get = my_control_get,
+    .put = my_control_put
+};
+iface 字段指出control的类型
+name 字段control名字，有命名规则  通常可以分成3部分来定义control的名字源--方向--功能
+index 字段编号多codec有用
+access 字段包含了 该control的访问类型
+private_value info,get,put回调汉书访问
+
+源，可以理解为该control的输入端，alsa已经预定义了一些常用的源，例如：Master，PCM，CD，Line等等。
+方向，代表该control的数据流向，例如：Playback，Capture，Bypass，Bypass Capture等等，也可以不定义方向，这时表示该Control是双向的（playback和capture）。
+功能，根据control的功能，可以是以下字符串：Switch，Volume，Route等等。
+也有一些命名上的特例：
+具体的命名规则 
+全局的capture和playback “Capture Source”，“Capture Volume”，“Capture Switch”，它们用于全局的capture source，switch和volume。同理，“Playback Volume”，“Playback Switch”，它们用于全局的输出switch和volume。
+Tone-controles 音调控制的开关和音量命名为：Tone Control - XXX，例如，“Tone Control - Switch”，“Tone Control - Bass”，“Tone Control - Center”。
+3D controls 3D控件的命名规则：，“3D Control - Switch”，“3D Control - Center”，“3D Control - Space”。
+Mic boost 麦克风音量加强控件命名为：“Mic Boost"或"Mic Boost(6dB)”。
+
+回调函数
+info回调函数用于获取control的详细信息
+
+get回调函数该回调函数用于读取control的当前值，并返回给用户空间的应用程序
+put回调函数用于把应用程序的控制值设置到control中。
+
+元数据（Metadata）
+主要用于设置db的我觉得
+DECLARE_TLV_DB_SCALE宏定义的mixer control，它所代表的值按一个固定的dB值的步长变化。该宏的第一个参数是要定义变量的名字，第二个参数是最小值，以0.01dB为单位。第三个参数是变化的步长，也是以0.01dB为单位。如果该control处于最小值时会做出mute时，需要把第四个参数设为1。
+
+DECLARE_TLV_DB_LINEAR宏定义的mixer control，它的输出随值的变化而线性变化。 该宏的第一个参数是要定义变量的名字，第二个参数是最小值，以0.01dB为单位。第三个参数是最大值，以0.01dB为单位。如果该control处于最小值时会做出mute时，需要把第二个参数设为TLV_DB_GAIN_MUTE。
+
+这两个宏实际上就是定义一个整形数组，所谓tlv，就是Type-Lenght-Value的意思，数组的第0个元素代表数据的类型，第1个元素代表数据的长度，第三个元素和之后的元素保存该变量的数据。
+
+4.Control设备的建立
+Control设备和PCM设备一样，都属于声卡下的逻辑设备。用户空间的应用程序通过alsa-lib访问该Control设备，读取或控制control的控制状态，从而达到控制音频Codec进行各种Mixer等控制操作。
+
+Control设备的创建过程大体上和PCM设备的创建过程相同。详细的创建过程可以参考本博的另一篇文章：Linux音频驱动之三：PCM设备的创建。下面我们只讨论有区别的地方。
+
+我们需要在我们的驱动程序初始化时主动调用snd_pcm_new()函数创建pcm设备，而control设备则在snd_card_create()内被创建，snd_card_create()通过调用snd_ctl_create()函数创建control设备节点。所以我们无需显式地创建control设备，只要建立声卡，control设备被自动地创建。
+
+和pcm设备一样，control设备的名字遵循一定的规则：controlCxx，这里的xx代表声卡的编号。我们也可以通过代码证明这一点，下面的是snd_ctl_dev_register()函数的代码：
+
+/*
+ * registration of the control device
+ */
+static int snd_ctl_dev_register(struct snd_device *device)
+{
+	struct snd_card *card = device->device_data;
+	int err, cardnum;
+	char name[16];
+
+	if (snd_BUG_ON(!card))
+		return -ENXIO;
+	cardnum = card->number;
+	if (snd_BUG_ON(cardnum < 0 || cardnum >= SNDRV_CARDS))
+		return -ENXIO;
+	sprintf(name, "controlC%i", cardnum);
+	if ((err = snd_register_device(SNDRV_DEVICE_TYPE_CONTROL, card, -1,
+				       &snd_ctl_f_ops, card, name)) < 0)
+		return err;
+	return 0;
+}
+
+PCM设备创建
+每个声卡最多可以包含4个pcm的实例，每个pcm实例对应一个pcm设备文件
+一个pcm实例由一个playback stream和一个capture stream组成。
+
+如前面所述，DAPM 框架为了解决前面提到的 kcontrol 不足的问题，引入了 widget 这一概念。所谓 widget，具备路径和电源管理的 kcontrol，其实可以理解为是 kcontrol 的进一步升级和封装，它同样是指音频系统中的某个部件，比如 mixer，mux，输入输出引脚，电源供应器等等，甚至，我们可以定义虚拟的 widget，例如 playback stream widget。widget 把 kcontrol 和动态电源管理进行了有机的结合，同时还具备音频路径的连结功能，一个 widget 可以和它相邻的 widget 有某种动态的连结关系。在 DAPM 框架中，widget 用结构体 snd_soc_dapm_widget 来描述：
+
+/* dapm widget */
+struct snd_soc_dapm_widget {
+    enum snd_soc_dapm_type id; 该widget的类型值，比如snd_soc_dapm_output，snd_soc_dapm_mixer等
+    const char *name;        /* widget name */
+    const char *sname;    /* stream name */代表该widget所在stream的名字，比如对于snd_soc_dapm_dai_in类型的widget，会使用该字段
+    struct list_head list;所有注册到系统中的widget都会通过该list，链接到代表声卡的snd_soc_card结构的widgets链表头字段中
+    struct snd_soc_dapm_context *dapm;snd_soc_dapm_context结构指针，ASoc把系统划分为多个dapm域，每个widget属于某个dapm域，同一个域代表着同样的偏置电压供电策略，
+    比如，同一个codec中的widget通常位于同一个dapm域，而平台上的widget可能又会位于另外一个platform域中
+    void *priv;                /* widget specific data */有些widget可能需要一些专有的数据，可以使用该字段来保存，像snd_soc_dapm_dai_in类型的widget，会使用该字段来记住与之相关联的snd_soc_dai结构指针
+    struct regulator *regulator;        /* attached regulator */对于snd_soc_dapm_regulator_supply类型的widget，该字段指向与之相关的regulator结构指针
+    const struct snd_soc_pcm_stream *params; /* params for dai links */
+    unsigned int num_params; /* number of params for dai links */
+    unsigned int params_select; /* currently selected param for dai link */
+
+    /* dapm control */reg/shift/mask这3个字段用来控制该widget的电源状态，分别对应控制信息所在的寄存器地址，位移值和屏蔽值
+    int reg;                /* negative reg = no direct dapm */
+    unsigned char shift;            /* bits to shift */
+    unsigned int mask;            /* non-shifted mask */
+    unsigned int on_val;            /* on state value */电源开启时的值
+    unsigned int off_val;            /* off state value */电源关闭时的值
+    unsigned char power:1;            /* block power status */表示当前widget是否处于上电
+    unsigned char active:1;            /* active stream on DAC, ADC's */表示当前widget是否处于激活状态
+    unsigned char connected:1;        /* connected codec pin */表示当前widget是否处于连接状态
+    unsigned char new:1;            /* cnew complete */我们定义好的widget（snd_soc_dapm_widget结构），在注册到声卡中时需要进行实例化，该字段用来表示该widget是否已经被实例化
+    unsigned char force:1;            /* force state */该位被设置后，将会不管widget当前的状态，强制更新至新的电源状态
+    unsigned char ignore_suspend:1;         /* kept enabled over suspend */
+    unsigned char new_power:1;        /* power from this run */
+    unsigned char power_checked:1;        /* power checked this run */用于检查该widget是否应该上电或下电的回调函数指针
+    unsigned char is_supply:1;        /* Widget is a supply type widget */
+    unsigned char is_ep:2;            /* Widget is a endpoint type widget */
+    int subseq;                /* sort within widget type */
+
+    int (*power_check)(struct snd_soc_dapm_widget *w);
+
+    /* external events */
+    unsigned short event_flags;        /* flags to specify event types */
+    int (*event)(struct snd_soc_dapm_widget*, struct snd_kcontrol *, int);
+
+    /* kcontrols that relate to this widget */
+    int num_kcontrols;
+    const struct snd_kcontrol_new *kcontrol_news;
+    struct snd_kcontrol **kcontrols;
+    struct snd_soc_dobj dobj;
+
+    /* widget input and output edges */
+    struct list_head edges[2];
+
+    /* used during DAPM updates */
+    struct list_head work_list;
+    struct list_head power_list;
+    struct list_head dirty;
+    int endpoints[2];
+
+    struct clk *clk;
+}
+2.2 Widget 的种类
+在 DAPM 框架中，把各种不同的 widget 划分为不同的种类，snd_soc_dapm_widget 结构中的 id 字段用来表示该 widget 的种类，可选的种类都定义在一个枚举中，如下：
+
+
+/* dapm widget types */
+enum snd_soc_dapm_type {
+    snd_soc_dapm_input = 0,        /* input pin */该widget对应一个输入引脚
+    snd_soc_dapm_output,        /* output pin */ 该widget对应一个输出引脚
+    snd_soc_dapm_mux,            /* selects 1 analog signal from many inputs *该widget对应一个mux控件/
+    snd_soc_dapm_demux,            /* connects the input to one of multiple outputs */
+    snd_soc_dapm_mixer,            /* mixes several analog signals together */
+    snd_soc_dapm_mixer_named_ctl,        /* mixer with named controls */对应一个mixer控件，但是对应的kcontrol的名字不会加入widget的名字作为前缀
+    snd_soc_dapm_pga,            /* programmable gain/attenuation (volume) */对应一个pga控件（可编程增益控件）
+    snd_soc_dapm_out_drv,            /* output driver */对应一个输出驱动控件
+    snd_soc_dapm_adc,            /* analog to digital converter */对应一个ADC
+    snd_soc_dapm_dac,            /* digital to analog converter */对应一个DAC
+    snd_soc_dapm_micbias,        /* microphone bias (power) - DEPRECATED: use snd_soc_dapm_supply */对应一个麦克风偏置电压控件
+    snd_soc_dapm_mic,            /* microphone */麦克风
+    snd_soc_dapm_hp,            /* headphones */耳机
+    snd_soc_dapm_spk,            /* speaker */扬声器
+    snd_soc_dapm_line,            /* line input/output */线路输入输出
+    snd_soc_dapm_switch,        /* analog switch */模拟开关
+    snd_soc_dapm_vmid,            /* codec bias/vmid - to minimise pops */对应一个codec的vmid偏置电压
+    snd_soc_dapm_pre,            /* machine specific pre widget - exec first */machine级别的专用widget，会先于其它widget执行检查操作
+    snd_soc_dapm_post,            /* machine specific post widget - exec last */machine级别的专用widget，会后于其它widget执行检查操作
+    snd_soc_dapm_supply,        /* power/clock supply */对应一个电源或是时钟源
+    snd_soc_dapm_regulator_supply,    /* external regulator */对应一个外部regulator稳压器
+    snd_soc_dapm_clock_supply,    /* external clock */对应一个外部时钟源
+    snd_soc_dapm_aif_in,        /* audio interface input */对应一个数字音频输入接口，比如I2S接口的输入端
+    snd_soc_dapm_aif_out,        /* audio interface output */对应一个数字音频输出接口，比如I2S接口的输出端
+    snd_soc_dapm_siggen,        /* signal generator */对应一个信号发生器
+    snd_soc_dapm_sink,
+    snd_soc_dapm_dai_in,        /* link to DAI structure */对应一个platform或codec域的输入DAI结构
+    snd_soc_dapm_dai_out,       对应一个platform或codec域的输出DAI结构
+    snd_soc_dapm_dai_link,        /* link between two DAI structures */用于链接一对输入/输出DAI结构
+    snd_soc_dapm_kcontrol,        /* Auto-disabled kcontrol */
+}
+三、DAPM 辅助定义 Widget & Kcontrol
+本节的内容将会介绍如何使用 DAPM 系统提供的一些辅助宏定义来定义各种类型的 widget 和它所用到的 kcontrol。
+
+3.1 辅助宏定义 Widget
+和普通的 kcontrol 一样，DAPM 框架为我们提供了大量的辅助宏来定义各种各样的 widget 控件，这些宏定义根据 widget 的类型，按照它们电源所在的域，被分为了几个域，它们分别是：
+
+（1）Codec 域 Widget
+比如 VREF 和 VMID 等提供参考电压的 widget，这些 widget 通常在 codec 的 probe/remove() 回调函数中进行控制，当然，在工作中如果没有音频流时，也可以适当地进行控制它们的开启与关闭。
+目前 DAPM 框架只提供了一个 Codec 域 Widget 的辅助宏：
+
+/* codec domain */
+#define SND_SOC_DAPM_VMID(wname) \
+{	.id = snd_soc_dapm_vmid, .name = wname, .kcontrol_news = NULL, \
+	.num_kcontrols = 0}
+1
+2
+3
+4
+（2）Platform 域 Widget
+位于该域上的 widget 通常是针对平台或板子的一些需要物理连接的输入/输出接口，例如耳机、扬声器、麦克风， 因为这些接口在每块板子上都可能不一样，所以通常它们是在 machine 驱动中进行定义和控制，并且也可以由用户空间的应用程序通过某种方式来控制它们的打开和关闭。
+DAPM 框架为我们提供了多种 platform 域 widget 的辅助定义宏：
+
+/* platform domain */
+#define SND_SOC_DAPM_SIGGEN(wname) \
+{	.id = snd_soc_dapm_siggen, .name = wname, .kcontrol_news = NULL, \
+	.num_kcontrols = 0, .reg = SND_SOC_NOPM }
+#define SND_SOC_DAPM_SINK(wname) \
+{	.id = snd_soc_dapm_sink, .name = wname, .kcontrol_news = NULL, \
+	.num_kcontrols = 0, .reg = SND_SOC_NOPM }
+#define SND_SOC_DAPM_INPUT(wname) \
+{	.id = snd_soc_dapm_input, .name = wname, .kcontrol_news = NULL, \
+	.num_kcontrols = 0, .reg = SND_SOC_NOPM }
+#define SND_SOC_DAPM_OUTPUT(wname) \
+{	.id = snd_soc_dapm_output, .name = wname, .kcontrol_news = NULL, \
+	.num_kcontrols = 0, .reg = SND_SOC_NOPM }
+#define SND_SOC_DAPM_MIC(wname, wevent) \
+{	.id = snd_soc_dapm_mic, .name = wname, .kcontrol_news = NULL, \
+	.num_kcontrols = 0, .reg = SND_SOC_NOPM, .event = wevent, \
+	.event_flags = SND_SOC_DAPM_PRE_PMU | SND_SOC_DAPM_POST_PMD}
+#define SND_SOC_DAPM_HP(wname, wevent) \
+{	.id = snd_soc_dapm_hp, .name = wname, .kcontrol_news = NULL, \
+	.num_kcontrols = 0, .reg = SND_SOC_NOPM, .event = wevent, \
+	.event_flags = SND_SOC_DAPM_POST_PMU | SND_SOC_DAPM_PRE_PMD}
+#define SND_SOC_DAPM_SPK(wname, wevent) \
+{	.id = snd_soc_dapm_spk, .name = wname, .kcontrol_news = NULL, \
+	.num_kcontrols = 0, .reg = SND_SOC_NOPM, .event = wevent, \
+	.event_flags = SND_SOC_DAPM_POST_PMU | SND_SOC_DAPM_PRE_PMD}
+#define SND_SOC_DAPM_LINE(wname, wevent) \
+{	.id = snd_soc_dapm_line, .name = wname, .kcontrol_news = NULL, \
+	.num_kcontrols = 0, .reg = SND_SOC_NOPM, .event = wevent, \
+	.event_flags = SND_SOC_DAPM_POST_PMU | SND_SOC_DAPM_PRE_PMD}
+
+以上这些 widget 分别对应信号发生器，输入引脚，输出引脚，麦克风，耳机，扬声器，线路输入接口。其中的 reg 字段均被设置为 SND_SOC_NOPM(-1)，表明这些 widget 是没有寄存器控制位来控制 widget 的电源状态的。麦克风，耳机，扬声器，线路输入接口这几种 widget，还可以定义一个 dapm 事件回调函数 wevent，从 event flags 字段设置可以看出，它们只会响应 SND_SOC_DAPM_POST_PMU（上电后）和 SND_SOC_DAPM_PMD（下电前）事件，这几个 widget 通常会在 machine 驱动中定义，而 SND_SOC_DAPM_INPUT 和 SND_SOC_DAPM_OUTPUT 则用来定义 codec 芯片的输出输入脚，通常在 codec 驱动中定义，最后，在 machine 驱动中增加相应的 route，把麦克风和耳机等 widget 与相应的 codec 输入输出引脚的 widget 连接起来。
+
+（3）音频路径域 Widget
+一般是指 codec 内部的 mixer、mux 等控制音频路径的 widget，这些 widget 可以根据用户空间的设定连接关系，自动设定它们的电源状态。这种 widget 通常是对普通 kcontrols 控件的再封装，增加音频路径和电源管理功能，所以这种 widget 会包含一个或多个 kcontrol，普通 kcontrol 的定义方法在前面 “ALSA ASOC Kcontrol” 小节中已经介绍过，不过这些被包含的 kcontrol 不能使用这种方法定义，它们需要使用 dapm 框架提供的定义宏来定义，详细的讨论后面有介绍，这里先列出这些 widget 的定义宏：
+
+/* path domain */
+#define SND_SOC_DAPM_PGA(wname, wreg, wshift, winvert,\
+	 wcontrols, wncontrols) \
+{	.id = snd_soc_dapm_pga, .name = wname, \
+	SND_SOC_DAPM_INIT_REG_VAL(wreg, wshift, winvert), \
+	.kcontrol_news = wcontrols, .num_kcontrols = wncontrols}
+#define SND_SOC_DAPM_OUT_DRV(wname, wreg, wshift, winvert,\
+	 wcontrols, wncontrols) \
+{	.id = snd_soc_dapm_out_drv, .name = wname, \
+	SND_SOC_DAPM_INIT_REG_VAL(wreg, wshift, winvert), \
+	.kcontrol_news = wcontrols, .num_kcontrols = wncontrols}
+#define SND_SOC_DAPM_MIXER(wname, wreg, wshift, winvert, \
+	 wcontrols, wncontrols)\
+{	.id = snd_soc_dapm_mixer, .name = wname, \
+	SND_SOC_DAPM_INIT_REG_VAL(wreg, wshift, winvert), \
+	.kcontrol_news = wcontrols, .num_kcontrols = wncontrols}
+#define SND_SOC_DAPM_MIXER_NAMED_CTL(wname, wreg, wshift, winvert, \
+	 wcontrols, wncontrols)\
+{       .id = snd_soc_dapm_mixer_named_ctl, .name = wname, \
+	SND_SOC_DAPM_INIT_REG_VAL(wreg, wshift, winvert), \
+	.kcontrol_news = wcontrols, .num_kcontrols = wncontrols}
+/* DEPRECATED: use SND_SOC_DAPM_SUPPLY */
+#define SND_SOC_DAPM_MICBIAS(wname, wreg, wshift, winvert) \
+{	.id = snd_soc_dapm_micbias, .name = wname, \
+	SND_SOC_DAPM_INIT_REG_VAL(wreg, wshift, winvert), \
+	.kcontrol_news = NULL, .num_kcontrols = 0}
+#define SND_SOC_DAPM_SWITCH(wname, wreg, wshift, winvert, wcontrols) \
+{	.id = snd_soc_dapm_switch, .name = wname, \
+	SND_SOC_DAPM_INIT_REG_VAL(wreg, wshift, winvert), \
+	.kcontrol_news = wcontrols, .num_kcontrols = 1}
+#define SND_SOC_DAPM_MUX(wname, wreg, wshift, winvert, wcontrols) \
+{	.id = snd_soc_dapm_mux, .name = wname, \
+	SND_SOC_DAPM_INIT_REG_VAL(wreg, wshift, winvert), \
+	.kcontrol_news = wcontrols, .num_kcontrols = 1}
+#define SND_SOC_DAPM_DEMUX(wname, wreg, wshift, winvert, wcontrols) \
+{	.id = snd_soc_dapm_demux, .name = wname, \
+	SND_SOC_DAPM_INIT_REG_VAL(wreg, wshift, winvert), \
+	.kcontrol_news = wcontrols, .num_kcontrols = 1}
+
+可以看出，这些 widget 的 reg 和 shift 字段是需要赋值的，说明这些 widget 是有相应的电源控制寄存器的，DAPM 框架在扫描和更新音频路径时，会利用这些寄存器来控制 widget 的电源状态，使得它们的供电状态是按需分配的，需要的时候（在有效的音频路径上）上电，不需要的时候（不在有效的音频路径上）下电。这些 widget 需要完成和之前介绍的 mixer、mux 等控件同样的功能，实际上，这是通过它们包含的 kcontrol 控件来完成的，这些 kcontrol 我们需要在定义 widget 前先定义好，然后通过 wcontrols 和 num_kcontrols 参数传递给这些辅助定义宏。
+
+如果需要自定义这些 widget 的 dapm 事件处理回调函数，也可以使用下面这些带 "_E" 后缀的版本：
+
+SND_SOC_DAPM_PGA_E
+SND_SOC_DAPM_OUT_DRV_E
+SND_SOC_DAPM_MIXER_E
+SND_SOC_DAPM_MIXER_NAMED_CTL_E
+SND_SOC_DAPM_SWITCH_E
+SND_SOC_DAPM_MUX_E
+SND_SOC_DAPM_VIRT_MUX_E
+————————————————
+
+https://blog.csdn.net/weixin_45437140/article/details/130233078?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-130233078-blog-84568806.235%5Ev43%5Epc_blog_bottom_relevance_base5&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-130233078-blog-84568806.235%5Ev43%5Epc_blog_bottom_relevance_base5&utm_relevant_index=2
+
+https://blog.csdn.net/hainei_/article/details/124707205
+
+
+dapm_power_widgets

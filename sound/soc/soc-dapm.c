@@ -1843,6 +1843,7 @@ static int dapm_power_widgets(struct snd_soc_card *card, int event)
 	 * iterate.
 	 */
 	list_for_each_entry(w, &card->dapm_dirty, dirty) {
+		printk("zty dirty name %s!\n", w->name);
 		dapm_power_one_widget(w, &up_list, &down_list);
 	}
 
@@ -2500,7 +2501,7 @@ static int snd_soc_dapm_add_route(struct snd_soc_dapm_context *dapm,
 		sink = route->sink;
 		source = route->source;
 	}
-
+	printk("hndz route sink %s source %s!\n", sink, source);
 	/*
 	 * find src and dest widgets over all widgets but favor a widget from
 	 * current DAPM context
@@ -2877,6 +2878,7 @@ int snd_soc_dapm_put_volsw(struct snd_kcontrol *kcontrol,
 	struct snd_soc_dapm_update update;
 	int ret = 0;
 
+	printk("zty dapm put reg %d!\n", reg);
 	if (snd_soc_volsw_is_stereo(mc))
 		dev_warn(codec->dapm.dev,
 			 "ASoC: Control '%s' is stereo, which is not supported\n",
@@ -3274,7 +3276,7 @@ snd_soc_dapm_new_control(struct snd_soc_dapm_context *dapm,
 		kfree(w);
 		return NULL;
 	}
-
+	printk("zty dapm new controls name %s!\n", w->name);
 	switch (w->id) {
 	case snd_soc_dapm_switch:
 	case snd_soc_dapm_mixer:
