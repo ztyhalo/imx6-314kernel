@@ -20,11 +20,12 @@ static int regmap_i2c_write(void *context, const void *data, size_t count)
 	struct i2c_client *i2c = to_i2c_client(dev);
 	int ret;
 
-//	dump_stack();
-//	if(strcmp(i2c->name, "tlv320aic3x") == 0)
-//	{
-//		printk("zty write i2c name %s!\n", i2c->name);
-//	}
+	
+	// if(strcmp(i2c->name, "tlv320aic3x") == 0)
+	// {
+	// 	printk("zty write i2c name %s!\n", i2c->name);
+	// 	dump_stack();
+	// }
 	ret = i2c_master_send(i2c, data, count);
 	if (ret == count)
 		return 0;

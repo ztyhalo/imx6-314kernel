@@ -1145,7 +1145,7 @@ static int aic3x_set_power(struct snd_soc_codec *codec, int power)
 		/* Sync reg_cache with the hardware */
 		regcache_cache_only(aic3x->regmap, false);
 		regcache_sync(aic3x->regmap);
-
+		
 		/* Rewrite paired PLL D registers in case cached sync skipped
 		 * writing one of them and thus caused other one also not
 		 * being written
@@ -1503,6 +1503,9 @@ static int aic3x_i2c_probe(struct i2c_client *i2c,
 	int ret, i;
 	u32 value;
 	struct pinctrl *pinctrl;
+
+	printk("hndz aic3xi2cprobe name %s!\n", i2c->name);
+	// dump_stack();
 
 	pinctrl = devm_pinctrl_get_select_default(&i2c->dev);
 	if (IS_ERR(pinctrl)) {

@@ -1059,10 +1059,13 @@ int _regmap_raw_write(struct regmap *map, unsigned int reg,
 
 	/* Check for unwritable registers before we start */
 	if (map->writeable_reg)
+	{
+		printk("hndz map->writeable_reg func %pF!\n", map->writeable_reg);
 		for (i = 0; i < val_len / map->format.val_bytes; i++)
 			if (!map->writeable_reg(map->dev,
 						reg + (i * map->reg_stride)))
 				return -EINVAL;
+	}
 
 	if (!map->cache_bypass && map->format.parse_val) {
 		unsigned int ival;
@@ -1313,6 +1316,7 @@ int _regmap_write(struct regmap *map, unsigned int reg,
 #endif
 
 	trace_regmap_reg_write(map->dev, reg, val);
+	printk("hndz map dev %s write reg %d val 0x%x func %pF!\n", dev_name(map->dev), reg, val, map->reg_write);
 
 	return map->reg_write(context, reg, val);
 }

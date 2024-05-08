@@ -681,6 +681,9 @@ i2c_new_device(struct i2c_adapter *adap, struct i2c_board_info const *info)
 
 	strlcpy(client->name, info->type, sizeof(client->name));
 
+	// printk("hndz add clent name %s!\n", client->name);
+	// dump_stack();
+
 	/* Check for address validity */
 	status = i2c_check_client_addr_validity(client);
 	if (status) {
@@ -1750,6 +1753,7 @@ EXPORT_SYMBOL(__i2c_transfer);
 int i2c_transfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
 {
 	int ret;
+	int i;
 
 	/* REVISIT the fault reporting model here is weak:
 	 *
@@ -1768,6 +1772,24 @@ int i2c_transfer(struct i2c_adapter *adap, struct i2c_msg *msgs, int num)
 	 *    (discarding status on the first one).
 	 */
 
+	//  printk("hndz i2c adap name %s!\n", adap->name);
+	if(strcmp(adap->name, "21a8000.i2c") == 0)
+	{
+		for (ret = 0; ret < num; ret++) {
+			if(msgs->addr == 0x18)
+			{
+				printk("hndz master_xfer[%d] %c, addr=0x%02x, "
+					"len=%d%s\n", ret, (msgs[ret].flags & I2C_M_RD)
+					? 'R' : 'W', msgs[ret].addr, msgs[ret].len,
+					(msgs[ret].flags & I2C_M_RECV_LEN) ? "+" : "");
+				for(i = 0; i < msgs[ret].len; i++)
+				{
+					printk(" 0x%x ", msgs[ret].buf[i]);
+				}
+				printk("!\n");
+			}
+		}
+	}
 	if (adap->algo->master_xfer) {
 #ifdef DEBUG
 		for (ret = 0; ret < num; ret++) {
@@ -1812,7 +1834,7 @@ int i2c_master_send(const struct i2c_client *client, const char *buf, int count)
 	struct i2c_adapter *adap = client->adapter;
 	struct i2c_msg msg;
 
-//	printk("client name %s!\n", client->name);
+	// printk("client name %s!\n", client->name);
 	msg.addr = client->addr;
 	msg.flags = client->flags & I2C_M_TEN;
 	msg.len = count;

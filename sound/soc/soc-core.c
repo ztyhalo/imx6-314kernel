@@ -2299,7 +2299,10 @@ unsigned int snd_soc_write(struct snd_soc_codec *codec,
 			   unsigned int reg, unsigned int val)
 {
 	dev_dbg(codec->dev, "write %x = %x\n", reg, val);
-//	printk("write %x = %x %pF\n", reg, val, codec->write);
+	
+	printk("hndz write %d = %d %pF\n", reg, val, codec->write);
+	if(reg == 0)
+	 	dump_stack();
 	trace_snd_soc_reg_write(codec, reg, val);
 	return codec->write(codec, reg, val);
 }

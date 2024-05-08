@@ -2979,7 +2979,8 @@ int snd_soc_dapm_put_enum_double(struct snd_kcontrol *kcontrol,
 		val |= ucontrol->value.enumerated.item[1] << e->shift_r;
 		mask |= e->mask << e->shift_r;
 	}
-
+	printk("hndz dapm put enum reg %d val 0x%x!\n", e->reg, val);
+	dump_stack();
 	mutex_lock_nested(&card->dapm_mutex, SND_SOC_DAPM_CLASS_RUNTIME);
 
 	change = snd_soc_test_bits(codec, e->reg, mask, val);
